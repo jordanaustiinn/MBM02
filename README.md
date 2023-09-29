@@ -7,9 +7,6 @@
 * [License](#license)
 * [Contact](#contact)
 
-## Status
-Published live version at: [niteczki-daneczki](https://niteczki-daneczki.netlify.app/)
-
 ## Technologies
 The website is built using the following technologies:
 * <b>Frontend</b>: React.js, React Hooks, SCSS
@@ -18,6 +15,6 @@ The website is built using the following technologies:
 [MIT](https://choosealicense.com/licenses/mit/)
 
 ## Contact
-#### Contact me via e-mail: piotrwrobel.ajiiz@gmail.com
+#### Contact me via e-mail
 
 Initialized with 🖤
