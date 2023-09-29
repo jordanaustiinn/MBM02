@@ -1,0 +1,218 @@
+@import "variables";
+
+.sidebar {
+    position: fixed;
+    z-index: 1;
+    width: 25vw;
+    height: 100vh;
+    background-color: $background-black;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    transition: transform ease .8s;
+    transform: translateX(-100%)
+}
+
+.sidebar-active {
+    transform: translateX(0%)
+}
+
+.sidebar-trigger {
+    position: absolute;
+    width: 50px;
+    top: 15px;
+    left: 100%;
+    color: $green-main;
+    cursor: pointer;
+    animation: moveTrigger 1.1s ease infinite;
+}
+
+.sidebar-trigger:hover {
+    animation-play-state: paused;
+}
+
+.main-header {
+    height: 25%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #707070;
+
+    &__title {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        font-size: 2em;
+        font-weight: lighter;
+        letter-spacing: 0.1em;
+        line-height: 1.2em;
+
+        &-link {
+            text-align: start;
+            transition: opacity .5s ease;
+
+            &:hover {
+                opacity: 0.6;
+            }
+
+        }
+    }
+}
+
+.main-nav {
+    height: 50%;
+
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        padding: 70px 15% 30px;
+
+        &-item {
+            position: relative;
+            padding: 20px 0;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 0.9em;
+            letter-spacing: 0.15em;
+
+            &-text {
+                cursor: pointer;
+                transition: color .5s ease;
+
+                &:hover {
+                    color: $pink-main;
+                }
+            }
+        }
+    }
+}
+
+.toggle-section {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: inherit;
+}
+
+.lang {
+    opacity: .5;
+    transition: opacity .5s ease;
+}
+
+.lang-active {
+    opacity: 1;
+    transition: opacity .5s ease;
+}
+
+.toggle-btn {
+    width: 50px;
+    margin: 0 15px 0 15px;
+    position: relative;
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.toggle-btn::before {
+    content: "";
+    width: 45px;
+    height: 23px;
+    position: absolute;
+    background-color: $white-main;
+    border-radius: 25px;
+    transition: all .9s ease;
+}
+
+.toggle-btn:checked::before {
+    background-color: $pink-main;
+    transition: background-color .9s ease;
+}
+
+.toggle-btn:checked::after {
+    background-color: $background-black;
+    border-color: $pink-main;
+    transform: translateX(22px);
+    transition: transform .7s ease, background-color .7s ease, border-color .7s ease;
+}
+
+.toggle-btn::after {
+    content: "";
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    box-sizing: border-box;
+    background-color: $pink-main;
+    border: 2px solid $white-main;
+    border-radius: 23px;
+    transition: transform .7s ease, background-color .7s ease, border-color .7s ease;
+}
+
+.copyright {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+
+    &-link {
+        transition: color .5s ease;
+
+        &:hover {
+            color: $pink-main;
+        }
+    }
+}
+
+@keyframes moveTrigger {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .sidebar {
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .sidebar {
+        width: 50vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sidebar {
+        font-size: 14px;
+        width: 60vw;
+    }
+
+    .main-header {
+        &__title {
+            font-size: 1.7em;
+        }
+    }
+
+    .lang {
+        font-size: 11px;
+    }
+
+    .toggle-btn {
+        transform: translateY(-3px);
+    }
+
+    .toggle-btn::before {
+        height: 18px;
+    }
+
+    .toggle-btn::after {
+        height: 18px;
+    }
+}
